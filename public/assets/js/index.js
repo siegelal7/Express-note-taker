@@ -19,7 +19,7 @@ const getNotes = () => {
 const saveNote = (note) => {
   setTimeout(function () {
     location.reload();
-  }, 500);
+  }, 250);
   return $.ajax({
     url: "/api/notes",
     data: note,
