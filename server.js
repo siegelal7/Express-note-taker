@@ -9,10 +9,10 @@ const PORT = process.env.PORT || 8080;
 
 // console.log(dbJsonData);
 // Sets up the Express app to handle data parsing
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
 // Needed to add this middleware for css to work (https://stackoverflow.com/questions/13395742/can-not-get-css-file)
 app.use(express.static(path.join(__dirname, "public")));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 app.get("/notes", function (req, res) {
   res.sendFile(path.join(__dirname, "./public/notes.html"));
