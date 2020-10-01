@@ -43,7 +43,6 @@ app.post("/api/notes", function (req, res) {
     JSON.stringify(dbJsonData),
     function (err) {
       if (err) throw err;
-      location.reload();
     }
   );
   res.json(req.body);

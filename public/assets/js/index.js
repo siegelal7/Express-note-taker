@@ -17,6 +17,9 @@ const getNotes = () => {
 
 // A function for saving a note to the db
 const saveNote = (note) => {
+  setTimeout(function () {
+    location.reload();
+  }, 500);
   return $.ajax({
     url: "/api/notes",
     data: note,
