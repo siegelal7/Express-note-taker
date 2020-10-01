@@ -23,7 +23,19 @@ app.get("/api/notes", function (req, res) {
   res.json(dbJsonData);
 });
 
-app.get("/api/notes/:id", function (req, res) {});
+app.get("/api/notes/:note", function (req, res) {
+  var chosen = req.params.note;
+
+  console.log(chosen);
+
+  //   for (var i = 0; i < dbJsonData.length; i++) {
+  //     if (chosen === dbJsonData[i].id) {
+  //       return res.json(dbJsonData[i]);
+  //     }
+  //   }
+
+  return res.json(false);
+});
 
 app.post("/api/notes", function (req, res) {
   dbJsonData.push(req.body);
@@ -36,17 +48,6 @@ app.post("/api/notes", function (req, res) {
   );
 });
 
-app.post("/api/notes", function (req, res) {
-  dbJsonData.push(req.body);
-  fs.writeFile(
-    path.join(__dirname, "../db/db.json"),
-    JSON.stringify(dbJsonData),
-    function (err) {
-      if (err) throw err;
-    }
-  );
-  res.json(req.body);
-});
 app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "./public/index.html"));
 });
