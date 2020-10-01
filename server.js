@@ -14,7 +14,7 @@ app.use(express.json());
 // Needed to add this middleware for css to work (https://stackoverflow.com/questions/13395742/can-not-get-css-file)
 app.use(express.static(path.join(__dirname, "public")));
 
-app.get("/", function (req, res) {
+app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 
@@ -27,7 +27,7 @@ app.get("/api/notes", function (req, res) {
   res.json(dbJsonData);
 });
 
-app.get("/api/notes/:id");
+app.get("/api/notes/:id", function (req, res) {});
 
 app.post("/api/notes", function (req, res) {
   dbJsonData.push(req.body);
