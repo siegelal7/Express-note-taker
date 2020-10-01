@@ -28,11 +28,11 @@ app.get("/api/notes/:note", function (req, res) {
 
   console.log(chosen);
 
-  //   for (var i = 0; i < dbJsonData.length; i++) {
-  //     if (chosen === dbJsonData[i].id) {
-  //       return res.json(dbJsonData[i]);
-  //     }
-  //   }
+  for (var i = 0; i < dbJsonData.length; i++) {
+    if (chosen === dbJsonData[i].id) {
+      return res.json(dbJsonData[i]);
+    }
+  }
 
   return res.json(false);
 });
@@ -43,11 +43,12 @@ app.post("/api/notes", function (req, res) {
     path.join(__dirname, "./db/db.json"),
     JSON.stringify(dbJsonData),
     function (err) {
-      if (err) throw error;
+      if (err) throw err;
+      console.log("successfully wrote to db");
     }
   );
+  res.json(req.body);
 });
-
 app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "./public/index.html"));
 });
