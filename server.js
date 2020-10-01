@@ -7,7 +7,7 @@ const dbJsonData = require("./db/db.json");
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-console.log(dbJsonData);
+// console.log(dbJsonData);
 // Sets up the Express app to handle data parsing
 // Needed to add this middleware for css to work (https://stackoverflow.com/questions/13395742/can-not-get-css-file)
 app.use(express.static(path.join(__dirname, "public")));
@@ -54,16 +54,16 @@ app.delete("/api/notes/:id", function (req, res) {
   const currentId = req.params.id;
 
   let newArr = dbJsonData.filter((i) => i.id !== currentId);
-
+  console.log(newArr);
   fs.writeFile(
     path.join(__dirname, "./db/db.json"),
     JSON.stringify(newArr),
     function (err) {
       if (err) throw err;
-      console.log("successfully wrote to db");
+      console.log("successfully deleted from db");
     }
   );
-
+  console.log(dbJsonData);
   res.json({
     ok: "true",
   });
