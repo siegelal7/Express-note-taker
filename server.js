@@ -19,14 +19,14 @@ app.get("/notes", function (req, res) {
 });
 
 app.get("/api/notes", function (req, res) {
-  console.log(dbJsonData);
+  // console.log(dbJsonData);
   res.json(dbJsonData);
 });
 
 app.get("/api/notes/:note", function (req, res) {
   var chosen = req.params.note;
 
-  console.log(chosen);
+  // console.log(chosen);
 
   for (var i = 0; i < dbJsonData.length; i++) {
     if (chosen === dbJsonData[i].id) {
@@ -49,9 +49,30 @@ app.post("/api/notes", function (req, res) {
   );
   res.json(req.body);
 });
+
+app.delete("/api/notes/:id", function (req, res) {
+  const currentId = req.params.id;
+
+  let newArr = dbJsonData.filter((i) => i.id !== currentId);
+
+  fs.writeFile(
+    path.join(__dirname, "./db/db.json"),
+    JSON.stringify(newArr),
+    function (err) {
+      if (err) throw err;
+      console.log("successfully wrote to db");
+    }
+  );
+
+  res.json({
+    ok: "true",
+  });
+});
+
 app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "./public/index.html"));
 });
+
 app.listen(PORT, function () {
   console.log("App listening on PORT: " + PORT);
 });

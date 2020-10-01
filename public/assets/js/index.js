@@ -75,8 +75,8 @@ const handleNoteDelete = function (event) {
   event.stopPropagation();
 
   const note = $(this).parent(".list-group-item").data();
-  console.log(note.id);
-
+  // console.log(note);
+  // console.log(activeNote);
   if (activeNote.id === note.id) {
     activeNote = {};
   }
@@ -85,6 +85,10 @@ const handleNoteDelete = function (event) {
     getAndRenderNotes();
     renderActiveNote();
   });
+  //FIXME: prolly should delete this
+  setTimeout(function () {
+    location.reload();
+  }, 150);
 };
 
 // Sets the activeNote and displays it
