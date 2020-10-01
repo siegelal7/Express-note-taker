@@ -7,7 +7,7 @@ const dbJsonData = require("./db/db.json");
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-// console.log(dbJsonData);
+console.log(dbJsonData);
 // Sets up the Express app to handle data parsing
 // Needed to add this middleware for css to work (https://stackoverflow.com/questions/13395742/can-not-get-css-file)
 app.use(express.static(path.join(__dirname, "public")));

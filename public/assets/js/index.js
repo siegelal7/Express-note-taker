@@ -86,9 +86,9 @@ const handleNoteDelete = function (event) {
     renderActiveNote();
   });
   //FIXME: prolly should delete this
-  setTimeout(function () {
-    location.reload();
-  }, 150);
+  // setTimeout(function () {
+  //   location.reload();
+  // }, 150);
 };
 
 // Sets the activeNote and displays it
