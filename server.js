@@ -35,6 +35,7 @@ app.post("/api/notes", function (req, res) {
     }
   );
 });
+
 app.post("/api/notes", function (req, res) {
   dbJsonData.push(req.body);
   fs.writeFile(
@@ -42,7 +43,7 @@ app.post("/api/notes", function (req, res) {
     JSON.stringify(dbJsonData),
     function (err) {
       if (err) throw err;
-      console.log("successfully wrote to db");
+      location.reload();
     }
   );
   res.json(req.body);
