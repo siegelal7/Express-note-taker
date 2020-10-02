@@ -2,7 +2,7 @@ const express = require("express");
 const fs = require("fs");
 const path = require("path");
 
-const dbJsonData = require("./db/db.json");
+let dbJsonData = require("./db/db.json");
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -53,18 +53,20 @@ app.post("/api/notes", function (req, res) {
 app.delete("/api/notes/:id", function (req, res) {
   const currentId = req.params.id;
 
-  let newArr = dbJsonData.filter((i) => i.id !== currentId);
-  console.log(newArr);
-  let newFile = fs.writeFile(
+  dbJsonData = dbJsonData.filter((i) => i.id !== currentId);
+  console.log(dbJsonData);
+  fs.writeFile(
     path.join(__dirname, "./db/db.json"),
-    JSON.stringify(newArr),
+    JSON.stringify(dbJsonData),
     function (err) {
       if (err) throw err;
       console.log("successfully deleted from db");
     }
   );
   console.log(dbJsonData);
-  res.json(newFile);
+  res.json({
+    ok: "true",
+  });
 });
 
 // app.delete("/api/notes/:id", function (req, res) {
