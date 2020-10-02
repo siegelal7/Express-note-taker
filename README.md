@@ -1,37 +1,47 @@
 # Express Note Taker
-  
-  ## Description
-  A simple web app for taking notes, storing to-do lists, or just setting reminders for yourself.
 
-  ## Table of contents
-  * [Description](#Description)
-  * [Installation](#Installation)
-  * [Usage](#Usage)
-  * [License](#License)
-  * [Technologies](#Technologies)
-  * [Contribution](#Contribution)
-  * [Tests](#Tests)
-  * [Questions](#Questions)
+## Description
 
-  ## Installation
-  In the project directory, "npm i" will install necessary depencies for development.
+A simple web app for taking notes, storing to-do lists, or just setting reminders for yourself.
 
+## Table of contents
 
-  ## Usage
-  Navigate to the URL https://note-taker-to-the-max.herokuapp.com to get started!
+- [Description](#Description)
+- [Installation](#Installation)
+- [Usage](#Usage)
+- [License](#License)
+- [Technologies](#Technologies)
+- [Contribution](#Contribution)
+- [Tests](#Tests)
+- [Questions](#Questions)
 
-  ## License
-  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![Home Page](./images/in.png)
+![Notes Page](./images/note.png)
 
-  #  Technologies
-  HTML,JavaScript,node.JS
+## Installation
 
-  ## Contribution
-  None
+In the project directory, "npm i" will install necessary depencies for development.
 
-  ## Tests 
-  None
+## Usage
 
-  ## Questions
-  siegelal@protonmail.com [Github page](https://www.github.com/siegelal7)
-  
+Navigate to the URL https://note-taker-to-the-max.herokuapp.com to get started!
+
+## License
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+# Technologies
+
+HTML,JavaScript,node.JS
+
+## Contribution
+
+None
+
+## Tests
+
+None
+
+## Questions
+
+siegelal@protonmail.com [Github page](https://www.github.com/siegelal7)
